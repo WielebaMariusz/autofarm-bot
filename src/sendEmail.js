@@ -15,6 +15,7 @@ module.exports = async function sendEmail(coins, coinsAmount, newCoinsAmount) {
   const info = await transporter.sendMail({
     from: '"Autofarm bot" <crypto.russ.hanneman@gmail.com>',
     to: 'mariusz0689@gmail.com',
+    bcc: process.env.RECIPIENTS,
     subject: `🚗  New  ${newCoinsAmount} ${newCoinsAmount > 1 ? 'coins' : 'coin'} on Autofarm 🚗`,
     html: getEmailTemplate(coins, coinsAmount)
   });
